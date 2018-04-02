@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>这是我的乐淘首页</title>
+    <!-- 添加站点图标 -->
+    <link rel="icon" href="./images/favicon.ico">
+    <!-- link字体图标 -->
+    <link rel="stylesheet" href="./lib/fontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="./lib/mui/css/mui.css">
+    <!-- link index.css文件 -->
+    <link rel="stylesheet/less" href="./less/product-detail.less">
+    <!-- less 编译文件 -->
+    <script src="./lib/less/less.js"></script>
+</head>
+
+<body>
+    <!-- header部分 -->
+    <header id="header">
+        <a href="#" class="fa fa-arrow-left"></a>
+        <h4>商品详情</h4>
+        <a href="#" class="fa fa-home"></a>
+    </header>
+    <!-- main部分 -->
+    <div class="mui-scroll-wrapper">
+        <div class="mui-scroll">
+            <main id="main">
+
+            </main>
+        </div>
+    </div>
+    <!-- footer部分 -->
+    <footer id="footer">
+        <div class="mui-row">
+            <div class="mui-col-xs-2">
+                <a href="#" class="fa fa-shopping-cart"></a>
+            </div>
+            <div class="mui-col-xs-5 btn-car">
+                <a href="#" class="mui-btn mui-btn-danger">加入购物车</a>
+            </div>
+            <div class="mui-col-xs-5 btn-buy">
+                <a href="#" class="mui-btn mui-btn-warning">立即购买</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 轮播图模板 -->
+    <script type="text/html" id="sliderTemp">
+        <div class="mui-slider">
+            <!-- 轮播图图片容器 -->
+            <div class="mui-slider-group mui-slider-loop">
+                <!--支持循环，需要重复图片节点-->
+                {{each pic as value i}}
+
+                <div class="mui-slider-item">
+                    <a href="#">
+                        <img src="{{value.picAddr}}" />
+                    </a>
+                </div>
+                {{/each}}
+            </div>
+            <!-- 轮播图导航点 -->
+
+            <div class="mui-slider-indicator">
+                {{each pic as value i}}
+                <div class="{{ i==0 ? 'mui-indicator mui-active' : 'mui-indicator' }}"></div>
+                {{/each}}
+            </div>
+
+        </div>
+
+    </script>
+    <!-- 商品详情模板 -->
+    <script type="text/html" id="productdetailTemp">
+
+        <div class="product-detail">
+            <div class="desc">
+                <p>{{proName}}</p>
+            </div>
+            <div class="price">
+                价格:
+                <span class="new-price">{{price}}</span>
+                <del class="old-price">{{oldPrice}}</del>
+            </div>
+            <div class="size">
+                尺码: {{each size as value i}}
+                <span class="{{i==0 ? 'btn-size active': 'btn-size'}}" data-size="{{value}}">{{value}}</span>
+                {{/each}}
+            </div>
+            <div class="number">
+                数量:    
+                <!-- data-numbox-min: 输入框中默认可以输入的最小值 -->
+                <div class="mui-numbox" data-numbox-step='1' data-numbox-min='1' data-numbox-max='{{num}}'>
+                    <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
+                    <input class="mui-numbox-input" type="number" />
+                    <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+                </div>
+                <span>剩余:{{num}}件</span>
+            </div>
+        </div>
+
+    </script>
+
+
+
+    <script src="./lib/zepto/zepto.min.js"></script>
+    <script src="./lib/mui/js/mui.js"></script>
+    <script src="./lib/artTemplate/template.js"></script>
+    <script src="./js/product-detail.js"></script>
+</body>
+
+</html>

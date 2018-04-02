@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录页面</title>
+    <!-- 导入站点图标 -->
+    <link rel="icon" href="./images/favicon.ico">
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet/less" href="./less/firstCategory.less">
+    <!-- 导入字体图标 -->
+    <link rel="stylesheet" href="./lib/font-awesome/css/font-awesome.css">
+    <!-- 编译less的脚本 -->
+    <script src="./lib/less/less.js"></script>
+</head>
+
+<body>
+    <!-- 侧边栏部分 -->
+    <div id="aside">
+        <!-- 个人资料 -->
+        <div class="profile">
+            <img src="./images/default.png" alt="" class="img-circle">
+            <h4 class="username">赵某波</h4>
+        </div>
+        <!-- 侧边栏导航 -->
+        <div class="nav">
+            <ul>
+                <li class="">
+                    <a href="#">
+                        <i class="fa fa-user"></i>用户管理
+                    </a>
+                </li>
+                <li>
+                    <!-- data-toggle="collapse" data-target="#demo" 可以实现折叠  -->
+                    <a href="#" data-toggle="collapse" data-target="#cate-content">
+                        <i class="fa fa-bars"></i>分类管理
+                    </a>
+                </li>
+                <!-- 折叠的内容  in(可以控制是否折叠)-->
+                <div id="cate-content" class="collapse in">
+                    <div class="first-cate active">
+                        <a href="firstCategory.html">一级分类管理</a>
+                    </div>
+                    <div class="second-cate">
+                        <a href="secondCategory.html">二级分类管理</a>
+                    </div>
+                </div>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-product-hunt"></i>商品管理
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="main">
+        <!-- 主体头部导航栏 -->
+        <div class="navbar">
+            <a href="" class="nav-left">
+                <i class="fa fa-navicon"></i>
+            </a>
+            <a href="" class="nav-right">
+                <i class="fa fa-sign-out">退出</i>
+            </a>
+        </div>
+        <!-- 主体的main -->
+        <div id="container">
+            <!-- 按钮触发模态框 -->
+            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                添加分类
+            </button>
+            <!-- 模态框（Modal） -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                &times;
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">
+                                添加分类
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                            <input type="text" class="add-cate">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                            </button>
+                            <button type="button" class="btn btn-primary btn-addcate" data-dismiss="modal">
+                                保存
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-bordered table-hover">
+                <!-- <caption>边框表格布局</caption> -->
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>分类编号</th>
+                        <th>分类名称</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                        <td>Bangalore</td>
+                        <td>560001</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- 分页模板 -->
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <!-- <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">1</a>
+                    </li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li> -->
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- table模板 -->
+    <script type="text/html" id="cateTemp">
+        {{each rows}}
+        <tr>
+            <td>
+                <input type="checkbox" data-delete="{{$value.isDelete}}">
+            </td>
+            <td>{{$value.id}}</td>
+            <td>{{$value.categoryName}}</td>
+        </tr>
+
+        {{/each}}
+    </script>
+
+    <!-- 分页 -->
+    <script type="text/html" id="pageTemp">
+
+        <li>
+            <a href="#" aria-label="Previous" class="prev">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        {{each pageArr}}
+        <li class="{{page==$value ? 'page active' : 'page'}}">
+            <a href="#" data-page="{{$value}}">{{$value}}</a>
+        </li>
+        {{/each}}
+        <li>
+            <a href="#" aria-label="Next" class="next">
+                <span aria-hidden=" true ">&raquo;</span>
+            </a>
+        </li>
+
+    </script>
+
+
+
+
+
+    <!-- js文件 -->
+    <script src=" ./lib/jquery/jquery.min.js "></script>
+    <script src="./lib/bootstrap/js/bootstrap.min.js "></script>
+    <script src="./lib/artTemplate/template.js "></script>
+    <script src="./js/firstCategory.js "></script>
+</body>
+
+</html>

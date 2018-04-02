@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>这是我的乐淘首页</title>
+    <!-- 添加站点图标 -->
+    <link rel="icon" href="./images/favicon.ico">
+    <!-- link字体图标 -->
+    <link rel="stylesheet" href="./lib/fontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="./lib/mui/css/mui.css">
+    <!-- link index.css文件 -->
+    <link rel="stylesheet/less" href="./less/category.less">
+    <!-- less 编译文件 -->
+    <script src="./lib/less/less.js"></script>
+</head>
+
+<body>
+    <!-- header部分 -->
+    <header id="header">
+        <a href="" class="fa fa-arrow-left"></a>
+        <form action="">
+            <input type="search">
+        </form>
+        <a href="search.html" class="fa fa-search"></a>
+    </header>
+    <!-- main部分 -->
+    <div id="main">
+        <div class="category-left">
+            <div class="cate_slide">
+                <ul>
+                    <!-- <li class="active" data-id="1">运动馆</li> -->
+                </ul>
+            </div>
+        </div>
+        <div class="category-right">
+            <!-- 区域滚动的父容器 -->
+            <div class="mui-scroll-wrapper">
+                <!-- 区域滚动的子容器 -->
+                <div class="mui-scroll">
+                    <!--这里放置真实显示的DOM内容-->
+                    <ul class="mui-row category-right-data">
+                        <!-- <li class="mui-col-xs-4">
+                            <a href="">
+                                <img src="./images/brand1.png" alt="">
+                                <p>耐克</p>
+                            </a>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer部分 -->
+    <footer id="footer">
+        <div class="mui-row">
+            <div class="mui-col-xs-3">
+                <a href="index.html" class="fa fa-home">
+                    <span>首页</span>
+                </a>
+            </div>
+            <div class="mui-col-xs-3">
+                <a href="category.html" class="fa fa-bars">
+                    <span>分类</span>
+                </a>
+            </div>
+            <div class="mui-col-xs-3">
+                <a href="cart.html" class="fa fa-shopping-cart">
+                    <span>购物车</span>
+                </a>
+            </div>
+            <div class="mui-col-xs-3">
+                <a href="user.html" class="fa fa-user">
+                    <span>会员中心</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 左侧分类的模板 -->
+    <script id='categoryLeftTep' type="text/html">
+        {{each rows }}
+        <li class="" data-id="{{$value.id}}">{{$value.categoryName}}</li>
+        {{/each}}
+    </script>
+
+    <!-- 右侧的分类信息 -->
+    <script id='categoryRightTep' type="text/html">
+        {{if rows.length}} {{each rows }}
+
+        <li class="mui-col-xs-4">
+            <a href="">
+                <img src="{{$value.brandLogo}}" alt="">
+                <p>{{$value.brandName}}</p>
+            </a>
+        </li>
+        {{/each}} {{else}}
+        <p>对不起商品已售完</p>
+        {{/if}}
+    </script>
+
+
+
+    <script src="./lib/zepto/zepto.min.js"></script>
+    <script src="./lib/mui/js/mui.js"></script>
+    <script src="./lib/artTemplate/template.js"></script>
+    <script src="./js/category.js"></script>
+</body>
+
+</html>

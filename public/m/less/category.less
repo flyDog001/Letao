@@ -1,0 +1,61 @@
+@import './basis.less';
+
+body {
+    background-color: #c9c9c9;
+}
+
+#main {
+
+   .category-left {
+        width: 80px;
+        float: left;
+        .cate_slide {
+            >ul{
+                >li {
+                    height: 45px;
+                    text-align: center;
+                    line-height: 45px;
+                    background-color: #fff;
+                    border-bottom: 1px solid #ccc;
+                    border-right: 1px solid #ccc;
+                    &.active {
+                        background-color: #c9c9c9;
+                    }
+                }
+            } 
+        }
+   } 
+
+   .category-right {
+       overflow: hidden;
+       background-color: #c9c9c9;
+       text-align: center;
+       position: relative;
+       height: 100%;
+        
+       /*区域滚动的父容器*/    
+       .mui-scroll-wrapper {
+
+            /*区域滚动的子容器*/    
+           .mui-scroll {
+                height: 101%;
+               .mui-row {
+                   padding: 8px;
+                   list-style: none;
+                   >li {
+                       background-color: #fff;
+                       >a {
+                           display: block;
+                           >img {
+                               width: 100%;
+                           }
+                           >p {
+                               margin-bottom: 0;
+                           }
+                       }
+                   }
+               }
+           }
+       }
+   } 
+}

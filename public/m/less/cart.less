@@ -1,0 +1,126 @@
+@import './basis.less';
+
+
+// main部分
+#main {
+    // 商品父容器
+    .product-detail {
+        >ul{
+            // 每个商品容器
+            >li {
+                .mui-slider-handle {
+                    .mui-table-cell{
+                        // 向右的箭头
+                        .mui-navigate-right:after, .mui-push-right:after{
+                            right: -15px;
+                        }  
+                       >a {
+                           .mui-media-body {
+                               white-space: normal;
+                               
+                               .desc {
+                                  font-size: 16px;
+                                  color: black;
+                               }
+                               .mui-ellipsis {
+                                  .new-price {
+                                      font-size: 16px;
+                                      color: red;
+                                  }
+                                  .old-price {
+                                      font-size: 14px;
+                                      color: #ccc;
+                                      margin-left: 10px;
+                                  }
+        
+                                  .num {
+                                      float: right;
+                                  }
+                               }
+        
+                               .size {
+        
+                               }
+                           }
+                          
+                       } 
+                       .btn-buy {
+                           position: absolute;
+                           bottom: 15px;
+                           left: 20px;
+                       }
+                    }
+                }
+            }
+        }
+    }
+}
+// 编辑商品详情容器
+.product-detail{
+    font-size: 14px;
+    
+    >div {
+        padding: 5px;
+        min-height: 50px;
+        border-bottom: 1px solid #ccc;
+    }
+    .desc {
+        p {
+            color: #333333;
+            font-weight: bold;
+            font-size: 20px;
+        }
+    }
+    .price {
+        line-height: 50px;
+        .new-price {
+            color: red;
+            font-size: 18px;
+        }
+        .old-price {
+            color: #333333;
+        }
+    }
+    // 尺码 
+    .size {
+        // text-align: center;
+        .btn-size {
+            text-align: center;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            border: 1px solid #000;
+            margin-top: 5px;
+            &.active {
+                background-color: skyblue;
+            }
+        }
+    }
+}
+
+
+
+// 订单部分
+.order {
+    position: fixed;
+    left: 0;
+    bottom: 50px;
+    display: flex;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    color: #ff3300;
+    border-top: 1px solid #ccc;
+    .money-sum {
+        flex: 3;
+        padding-left: 20px;
+        >span {
+            margin-left: 6px;
+        }
+    }
+    .btn-order {
+        flex: 1;
+        border-radius: 0;
+    }
+} 

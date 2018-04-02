@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body,html {
+    width: 100%;
+    height: 100%;
+}
+a {
+    text-decoration: none;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+// 侧边栏
+
+#aside {
+    width: 180px;
+    height: 100%;
+    background-color: #2f4050;
+    float: left;
+    .profile {
+        background-color: #243443;
+        text-align: center;
+        padding: 30px 0;
+        >img {
+            width: 100px;
+
+        }
+        .username {
+            color: #a9b0c2;
+            margin-top: 10px;
+        }
+    }
+
+    .nav {
+        margin-top: 30px;
+        >ul{
+            >li {
+                a {
+                    display: block;
+                    height: 40px;
+                    line-height: 40px;
+                    color: #a9b0c2;
+                    padding-left: 30px;
+                    >i {
+                        margin-right: 6px;
+                    }
+                }
+                &.active {
+                    background-color: #243443;
+                }
+            }
+            // 折叠的内容
+            #cate-content {
+                color: #a9b0c2;
+                >div{
+                    >a {
+                        display: block;
+                        height: 40px;
+                        line-height: 40px;
+                        color: #a9b0c2;
+                        padding-left: 60px;
+                    }
+                    &.active {
+                        background-color: #243443;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#main {
+    background-color: #f4f6f8;
+    overflow: hidden;
+    height: 100%;
+    .navbar {
+        font-size: 26px;
+        height: 80px;
+        line-height: 80px;
+        background-color: #fff;
+        padding: 0 20px;
+        .nav-left{
+            float: left;
+            color: hotpink; 
+         }
+        .nav-right{
+            float: right;
+        }
+    }
+}

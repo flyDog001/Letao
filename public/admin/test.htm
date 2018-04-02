@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+
+<body>
+
+    <script>
+        var x = 10;
+        var foo = {
+            x: 20,
+            bar: function () {
+                var x = 30;
+                return this.x;
+            }
+        };
+
+        // console.log((foo.bar)());
+
+        //alert(foo.bar()); //20
+        // alert((foo.bar)()); //
+        // alert((foo.bar = foo.bar)());
+        // alert((foo.bar, foo.bar)());
+        //  alert( foo.bar.call(window) );
+        //  alert( foo.bar.call(foo) );
+    </script>
+</body>
+
+</html>

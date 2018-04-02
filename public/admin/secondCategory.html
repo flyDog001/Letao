@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录页面</title>
+    <!-- 导入站点图标 -->
+    <link rel="icon" href="./images/favicon.ico">
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet/less" href="./less/secondCategory.less">
+    <!-- 导入字体图标 -->
+    <link rel="stylesheet" href="./lib/font-awesome/css/font-awesome.css">
+    <!-- 编译less的脚本 -->
+    <script src="./lib/less/less.js"></script>
+</head>
+
+<body>
+    <!-- 侧边栏部分 -->
+    <div id="aside">
+        <!-- 个人资料 -->
+        <div class="profile">
+            <img src="./images/default.png" alt="" class="img-circle">
+            <h4 class="username">赵某波</h4>
+        </div>
+        <!-- 侧边栏导航 -->
+        <div class="nav">
+            <ul>
+                <li class="">
+                    <a href="#">
+                        <i class="fa fa-user"></i>用户管理
+                    </a>
+                </li>
+                <li>
+                    <!-- data-toggle="collapse" data-target="#demo" 可以实现折叠  -->
+                    <a href="#" data-toggle="collapse" data-target="#cate-content">
+                        <i class="fa fa-bars"></i>分类管理
+                    </a>
+                </li>
+                <!-- 折叠的内容  in(可以控制是否折叠)-->
+                <div id="cate-content" class="collapse in">
+                    <div class="first-cate">
+                        <a href="firstCategory.html">一级分类管理</a>
+                    </div>
+                    <div class="second-cate active">
+                        <a href="secondCategory.html">二级分类管理</a>
+                    </div>
+                </div>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-product-hunt"></i>商品管理
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="main">
+        <!-- 主体头部导航栏 -->
+        <div class="navbar">
+            <a href="" class="nav-left">
+                <i class="fa fa-navicon"></i>
+            </a>
+            <a href="" class="nav-right">
+                <i class="fa fa-sign-out">退出</i>
+            </a>
+        </div>
+        <!-- 主体的main -->
+        <div id="container">
+            <!-- 按钮触发模态框 -->
+            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                添加品牌
+            </button>
+            <!-- 模态框（Modal） -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                &times;
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">
+                                添加品牌
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                            <!-- 模态框主体内容 -->
+                            <!-- 下拉菜单 -->
+                            <div class="dropdown">
+                                <!-- <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+                                    选择分类
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                    <li role="presentation">
+                                        <a role="menuitem" tabindex="-1" href="#">Java</a>
+                                    </li>
+                                </ul> -->
+                                <spn>请选择分类:</spn>
+                                <select id="brand-cate">
+                                    <option value="">1</option>
+                                </select>
+                            </div>
+                            <input class="btn btn-default btn-addbrand" type="text" placeholder="请输入品牌名称">
+                            <div class="update-file">
+                                <input type="file">
+                                <div class="img">
+                                    <img src="" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                            </button>
+                            <button type="button" class="btn btn-primary btn-addcate" data-dismiss="modal">
+                                保存
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-bordered table-hover">
+                <!-- <caption>边框表格布局</caption> -->
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>品牌编号</th>
+                        <th>品牌名称</th>
+                        <th>品牌logo</th>
+                        <th>所属分类</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <tr>
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                        <td>{{$value.id}}</td>
+                        <td>{{$value.brandName}}</td>
+                        <td>
+                            <img src="{{$value.brandLogo}}" alt="">
+                        </td>
+                        <td>{{$value.categoryName}}</td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- table模板 -->
+    <script type="text/html" id="brandTemp">
+        {{each rows}}
+        <tr>
+            <td>
+                <input type="checkbox">
+            </td>
+            <td>{{$value.id}}</td>
+            <td>{{$value.brandName}}</td>
+            <td>
+                <img src="{{$value.brandLogo}}" alt="">
+            </td>
+            <td>{{$value.categoryName}}</td>
+        </tr>
+        {{/each}}
+    </script>
+
+    <!-- 分裂模板 -->
+    <script type="text/html" id="cateTemp">
+        {{each rows}}
+        <option value="{{$value.id}}">{{$value.categoryName}}</option>
+        {{/each}}
+    </script>
+
+
+
+
+    <!-- js文件 -->
+    <script src=" ./lib/jquery/jquery.min.js "></script>
+    <script src="./lib/bootstrap/js/bootstrap.min.js "></script>
+    <script src="./lib/artTemplate/template.js "></script>
+    <script src="./js/secondCategory.js "></script>
+</body>
+
+</html>

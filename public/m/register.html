@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>这是我的乐淘search</title>
+    <!-- 添加站点图标 -->
+    <link rel="icon" href="./images/favicon.ico">
+    <!-- link字体图标 -->
+    <link rel="stylesheet" href="./lib/fontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="./lib/mui/css/mui.css">
+    <!-- link index.css文件 -->
+    <link rel="stylesheet/less" href="./less/rigister.less">
+    <!-- less 编译文件 -->
+    <script src="./lib/less/less.js"></script>
+</head>
+
+<body>
+    <!-- header部分 -->
+    <header id="header">
+        <a href="" class="fa fa-arrow-left"></a>
+        <h4>注册界面</h4>
+    </header>
+    <!-- main部分 -->
+    <main id="main">
+        <form class="mui-input-group">
+            <div class="mui-input-row">
+                <label>用户名</label>
+                <input type="text" class="mui-input-clear username" placeholder="请输入用户名">
+            </div>
+            <div class="mui-input-row">
+                <label>手机号</label>
+                <input type="text" class="mui-input-clear mobile" placeholder="手机号">
+            </div>
+            <div class="mui-input-row">
+                <label>密码</label>
+                <input type="password" class="mui-input-password password1" placeholder="请输入密码">
+            </div>
+            <div class="mui-input-row">
+                <label>确认密码</label>
+                <input type="password" class="mui-input-password password2" placeholder="确认密码">
+            </div>
+            <div class="v-code">
+                <input class="vcode" type="text" placeholder="认证码">
+                <button type="button" class="mui-btn mui-btn-primary btn-vcode">获取认证码</button>
+            </div>
+        </form>
+        <div class="register">
+            <button type="button" class="mui-btn mui-btn-primary">注册</button>
+        </div>
+    </main>
+    <!-- footer部分 -->
+    <footer id="footer">
+        <div class="mui-row">
+            <div class="mui-col-xs-3">
+                <a href="index.html" class="fa fa-home">
+                    <span>首页</span>
+                </a>
+            </div>
+            <div class="mui-col-xs-3">
+                <a href="category.html" class="fa fa-bars">
+                    <span>分类</span>
+                </a>
+            </div>
+            <div class="mui-col-xs-3">
+                <a href="cart.html" class="fa fa-shopping-cart">
+                    <span>购物车</span>
+                </a>
+            </div>
+            <div class="mui-col-xs-3">
+                <a href="user.html" class="fa fa-user">
+                    <span>会员中心</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="./lib/zepto/zepto.min.js"></script>
+    <script src="./lib/mui/js/mui.js"></script>
+    <script src="./lib/artTemplate/template.js"></script>
+    <script src="./js/register.js"></script>
+</body>
+
+</html>
