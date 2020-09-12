@@ -37,8 +37,8 @@ Product.queryProductDetailList= function (product, page, callback) {
   selectSql = selectSql + " LIMIT ?,?";
   param[param.length] = (page.page - 1) * page.size;
   param[param.length] = page.size;
-  console.log(selectSql);
-  console.log(param);
+  // console.log(selectSql);
+  // console.log(param);
   db.query(selectSql, param, function (err, result) {
     if (err) {
       return callback(err);
